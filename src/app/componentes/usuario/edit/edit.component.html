@@ -1,0 +1,130 @@
+<br /><br />
+<h1>FORMULARIO PARA ACTUALIZAR UN USUARIO</h1>
+
+<br><br><br>
+
+<div class="container form">
+    <form class="row g-3" [formGroup]="frmGroup" (ngSubmit)="putfrom(frmGroup.value)">
+
+        <!-- Identificacion-->
+        <div class="col-md-4">
+            <label for="inputEmail4" class="form-label">Identificacion</label>
+            <input type="number" formControlName="identificacion" min="4" max="11" class="form-control" id="inputEmail4"
+                placeholder="Identificacion" [ngClass]="{
+          'is-invalid': frmGroup.controls['identificacion'].invalid && (frmGroup.controls['identificacion'].dirty || frmGroup.controls['identificacion'].touched),
+          'is-valid': frmGroup.controls['identificacion'].valid
+        }">
+            <div
+                *ngIf="frmGroup.controls['identificacion'].invalid && (frmGroup.controls['identificacion'].dirty || frmGroup.controls['identificacion'].touched)">
+                <div *ngIf="frmGroup.controls['identificacion'].errors.required">
+                    Identificacion es requerido.
+                </div>
+                <div *ngIf="frmGroup.controls['identificacion'].errors.minlength" class="invalid-feedback">
+                    Identificacion debe ser de almenos 4 caracteres
+                </div>
+                <div *ngIf="frmGroup.controls['identificacion'].errors.forbiddenName" class="invalid-feedback">
+                    Identificacion invalida
+                </div>
+            </div>
+        </div>
+        <!-- Nombre Completo -->
+        <div class="col-md-10">
+            <label for="inputPassword4" class="form-label">Nombre Completo</label>
+            <input type="text" formControlName="NombreUsuario" class="form-control" id="NombreUsuario"
+                placeholder="Nombre Completo" [ngClass]="{
+              'is-invalid': frmGroup.controls['NombreUsuario'].invalid && (frmGroup.controls['NombreUsuario'].dirty || frmGroup.controls['NombreUsuario'].touched),
+              'is-valid': frmGroup.controls['NombreUsuario'].valid
+            }">
+            <div
+                *ngIf="frmGroup.controls['NombreUsuario'].invalid && (frmGroup.controls['NombreUsuario'].dirty || frmGroup.controls['NombreUsuario'].touched)">
+                <div *ngIf="frmGroup.controls['NombreUsuario'].errors.required">
+                    Nombre es requerido.
+                </div>
+                <div *ngIf="frmGroup.controls['NombreUsuario'].errors.minlength" class="invalid-feedback">
+                    Nombre debe tener mas de 4 caracteres
+                </div>
+                <div *ngIf="frmGroup.controls['NombreUsuario'].errors.forbiddenName" class="invalid-feedback">
+                    El nombre es invalido
+                </div>
+            </div>
+        </div>
+        <!-- Genero -->
+        <div class="col-md-10">
+            <label for="inputPassword8" class="form-label">Genero</label>
+            <select formControlName="Genero" class="form-control" id="inputPassword8"
+            [ngClass]="{
+                'is-invalid': frmGroup.controls['Genero'].invalid && (frmGroup.controls['Genero'].dirty || frmGroup.controls['Genero'].touched),
+                'is-valid': frmGroup.controls['Genero'].valid
+              }">
+                <option value="">Ingrese el Genero</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Otro">Otro</option>
+              </select>
+            <div
+                *ngIf="frmGroup.controls['Genero'].invalid && (frmGroup.controls['Genero'].dirty || frmGroup.controls['Genero'].touched)">
+                <div *ngIf="frmGroup.controls['Genero'].errors.required">
+                    Genero es requerido.
+                </div>
+                <div *ngIf="frmGroup.controls['Genero'].errors.minlength" class="invalid-feedback">
+                    Genero debe tener mas de 4 caracteres
+                </div>
+                <div *ngIf="frmGroup.controls['Genero'].errors.forbiddenName" class="invalid-feedback">
+                    El genero es invalido
+                </div>
+            </div>
+        </div>
+        <!-- Campo Numero de telefono-->
+        <div class="col-md-4">
+            <label for="inputAddress" class="form-label">Numero de telefono</label>
+            <input type="number" class="form-control" max="10" formControlName="NumeroTelefono" id="inputAddress"
+                placeholder="Numero de telefono EJ. 6..." [ngClass]="{        'is-invalid': frmGroup.controls['NumeroTelefono'].invalid && (frmGroup.controls['NumeroTelefono'].dirty || frmGroup.controls['NumeroTelefono'].touched),
+        'is-valid': frmGroup.controls['NumeroTelefono'].valid
+      }">
+            <div
+                *ngIf="frmGroup.controls['NumeroTelefono'].invalid && (frmGroup.controls['NumeroTelefono'].dirty || frmGroup.controls['NumeroTelefono'].touched)">
+                <div *ngIf="frmGroup.controls['NumeroTelefono'].errors.required">
+                    Numero de telefono es requerido.
+                </div>
+                <div *ngIf="frmGroup.controls['identificacion'].errors.maxlength" class="invalid-feedback">
+                    Numero de telefono maximo de 10 caracteres
+                </div>
+                <div *ngIf="frmGroup.controls['NumeroTelefono'].errors.forbiddenName" class="invalid-feedback">
+                    Numero de telefono invalido
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Correo electronico -->
+        <div class="col-md-10">
+            <label for="inputPassword4" class="form-label">Correo Electronico</label>
+            <input type="text" formControlName="Correo" class="form-control" id="Correo"
+                placeholder="Correo Electronico" [ngClass]="{
+                  'is-invalid': frmGroup.controls['Correo'].invalid && (frmGroup.controls['Correo'].dirty || frmGroup.controls['Correo'].touched),
+                  'is-valid': frmGroup.controls['Correo'].valid
+                }">
+            <div
+                *ngIf="frmGroup.controls['Correo'].invalid && (frmGroup.controls['Correo'].dirty || frmGroup.controls['Correo'].touched)">
+                <div *ngIf="frmGroup.controls['Correo'].errors.required">
+                    Correo Electronico es requerido.
+                </div>
+                <div *ngIf="frmGroup.controls['Correo'].errors.minlength" class="invalid-feedback">
+                    Correo Electronico debe tener mas de 4 caracteres
+                </div>
+                <div *ngIf="frmGroup.controls['Correo'].errors.forbiddenName" class="invalid-feedback">
+                    El Correo Electronico es invalido
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="col-1"></div>
+        <div class="col-1">
+            <button type="submit" [disabled]="frmGroup.invalid" class="btn btn-primary">Editar</button>
+        </div>
+    </form>
+</div>
